@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <form method="POST">
+        <input type="text" name="stock" placeholder="Enter stock symbol...">
+        <input type="submit" value="Submit">
+    </form>
+    <div id="chart"></div>
+    <script>
+        var graphs = {{ graphJSON | safe }};
+        Plotly.newPlot('chart', graphs.data, graphs.layout);
+    </script>
+</body>
+</html>
